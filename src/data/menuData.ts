@@ -1,5 +1,6 @@
 import { IconType } from "react-icons";
 import { BiLike } from "react-icons/bi";
+import { CiYoutube } from "react-icons/ci";
 import { FaFire } from "react-icons/fa";
 import { FiHelpCircle } from "react-icons/fi";
 import { IoGameController, IoSettingsOutline } from "react-icons/io5";
@@ -184,4 +185,28 @@ export const settingData:TMainmenu[]=[
         "SmartPhones",
         "Gadgets",
 
+    ]
+
+
+
+    export const Icons:TMainmenu[]=[{
+
+        icons: MdHomeFilled,
+        name:"Home"
+    },
+    {
+
+        icons:SiYoutubeshorts,
+        name:"Shorts"
+    },
+    {
+
+        icons:MdSubscriptions,
+        name:"Subscriptions"
+    },
+    {
+
+        icons:CiYoutube,
+        name:"You"
+    },
     ]

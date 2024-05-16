@@ -1,4 +1,5 @@
 "use client";
+import { MenuStore } from "@/store/useStateStore";
 import { MenuIcon, Mic, Search } from "lucide-react";
 import Image from "next/image";
 
@@ -12,14 +13,20 @@ const iconsHoverEffectStyle =
 
 const Navbar = () => {
   const [clickSearch, setClickSearch] = useState(false);
+  const { modal, setModal } = MenuStore();
   return (
     <div className="w-full flex h-[56px] px-5 sticky  top-0 left-0 items-center justify-between bg-bgColor ">
       <div className="flex justify-center items-center cursor-pointer">
-        <div className={iconsHoverEffectStyle}>
+        <div
+          className={iconsHoverEffectStyle}
+          onClick={() => {
+            setModal(!modal);
+          }}
+        >
           <MenuIcon />
         </div>
         <Image
-          src="/youtube.svg"
+          src="/youtube.png"
           width={120}
           height={100}
           alt="Picture of the author"

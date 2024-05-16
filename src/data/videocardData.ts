@@ -1,0 +1,3 @@
+type TVidoe={
+    img:""
+}

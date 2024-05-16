@@ -13,7 +13,10 @@ const SliderCatogories = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div ref={containerRef} className="overflow-hidden relative">
+    <div
+      ref={containerRef}
+      className="overflow-hidden relative bg-bgColor w-full h-full"
+    >
       <div
         className="flex gap-2 whitespace-nowrap transition-transform 
       "

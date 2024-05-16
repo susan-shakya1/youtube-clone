@@ -22,7 +22,7 @@ export default function RootLayout({
         <ThemeModeScript />
       </head>
       <body className={inter.className}>
-        <div className="max-h-screen flex flex-col">
+        <div className="max-h-screen flex flex-col ">
           <Navbar />
           {children}
         </div>
