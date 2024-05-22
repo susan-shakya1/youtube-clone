@@ -15,6 +15,7 @@ import { FaFire } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import Sidemenubar from "./sidemenubar";
 import { MenuStore } from "@/store/useStateStore";
+import clsx from "clsx";
 
 const menubtnStyle =
   "flex items-center px-3 py-2 gap-4 cursor-pointer w-full hover:bg-[#272727] duration-300 rounded-xl active:bg-[#272727]";
@@ -22,17 +23,29 @@ const menubtnTextStyle = "text-sm tracking-tight";
 
 const Menubar = () => {
   const { modal, setModal } = MenuStore();
+  const path = location.pathname;
+  const [selectId, setSelectId] = useState(0);
+
+  const handleSelectedId = (id: number) => {
+    setSelectId(id);
+  };
   return (
     <>
       {modal ? (
-        <div className="w-60   flex flex-col gap-2 shadow-sm text-textColor overflow-y-auto ">
-          <div className="w-full h-full flex flex-col gap-3  py-2 overflow-y-auto">
+        <div className="group w-60   flex flex-col gap-2 shadow-sm text-textColor overflow-hidden">
+          <div className="w-full h-full flex flex-col gap-3  py-2  group-hover:overflow-auto">
             <div className="flex flex-col mx-3 gap-1">
               {MainMenuData.map((data, index) => (
-                <div className={menubtnStyle} key={index}>
+                <button
+                  className={`${menubtnStyle} ${
+                    selectId == data.id ? "bg-[#272727]" : "bg-bgColor"
+                  }`}
+                  key={index}
+                  onClick={() => handleSelectedId(data.id)}
+                >
                   <data.icons size={22} />
                   <h1 className={menubtnTextStyle}>{data.name}</h1>
-                </div>
+                </button>
               ))}
             </div>
             {/* this is the underline div */}
@@ -45,10 +58,16 @@ const Menubar = () => {
                 <MdArrowForwardIos size={12} />
               </div>
               {YouMenuData.map((data, index) => (
-                <div className={menubtnStyle} key={index}>
+                <button
+                  className={`${menubtnStyle} ${
+                    selectId == data.id ? "bg-[#272727]" : "bg-bgColor"
+                  }`}
+                  key={index}
+                  onClick={() => handleSelectedId(data.id)}
+                >
                   <data.icons size={22} />
                   <h1 className={menubtnTextStyle}>{data.name}</h1>
-                </div>
+                </button>
               ))}
             </div>
             {/* this is the underline div */}
@@ -77,10 +96,10 @@ const Menubar = () => {
                 Explore
               </h1>
               {ExploreData.map((data, index) => (
-                <div className={menubtnStyle} key={index}>
+                <button className={menubtnStyle} key={index}>
                   <data.icons size={22} />
                   <h1 className={menubtnTextStyle}>{data.name}</h1>
-                </div>
+                </button>
               ))}
             </div>
             {/* {this is the hr line} */}

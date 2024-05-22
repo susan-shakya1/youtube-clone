@@ -11,7 +11,7 @@ export default function Home() {
         <div className="sticky top-0 p-2 pb-4 z-10 bg-bgColor">
           <SliderCatogories />
         </div>
-        {/* <Cards /> */}
+        <Cards />
       </div>
     </div>
   );

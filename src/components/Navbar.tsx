@@ -34,27 +34,30 @@ const Navbar = () => {
       </div>
       {/* outline-[#1C62B9] */}
       <div className="flex w-[50%] h-10 gap-4">
-        <div className="flex w-full h-full ">
+        <div className="flex w-full h-full  ">
           {clickSearch ? (
-            <div className="flex w-full h-full  rounded-l-3xl border border-[#1C62B9] ouline-none">
-              <div className=" pl-3 bg-[#121212] border-none rounded-l-3xl flex items-center justify-center ">
+            <form
+              className="flex w-full h-full  rounded-l-3xl border border-[#1C62B9] focus:border-[#1C62B9] ouline-none"
+              onSubmit={(e) => {
+                e.preventDefault();
+                setClickSearch(!clickSearch);
+              }}
+            >
+              <div className=" pl-4 pr-2  bg-[#121212] border-none rounded-l-3xl flex items-center justify-center  ">
                 <Search size={16} />
               </div>
               <input
                 type="text"
-                className="bg-[#121212] w-full
+                className="bg-[#121212] w-full border-none text-white
             px-4  outline-none placeholder-gray-300"
                 placeholder="search"
-                onClick={() => {
-                  setClickSearch(!clickSearch);
-                }}
               />
-            </div>
+            </form>
           ) : (
             <input
               type="text"
               className="bg-[#121212] w-full rounded-l-3xl
-             px-4 border border-[#303030] outline-none placeholder-gray-300"
+             px-4 border border-gray-500  outline-none placeholder-gray-300"
               placeholder="search"
               onClick={() => {
                 setClickSearch(!clickSearch);

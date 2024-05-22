@@ -1,7 +1,7 @@
 "use client";
 import { CatogoriesData } from "@/data/menuData";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Translate_Value = 200;
 
@@ -9,8 +9,29 @@ const SliderCatogories = () => {
   const [translate, setTranslate] = useState(0);
   const [isLeftArrowVisibile, setIsLeftArrowVisible] = useState(true);
   const [isRightArrowVisibile, setIRightArrowVisibile] = useState(true);
+  const [onselect, setOnSelect] = useState(0);
 
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleclickColor = (index: number) => {
+    setOnSelect(index);
+  };
+
+  useEffect(() => {
+    if (containerRef.current == null) return;
+    const observer = new ResizeObserver((entries) => {
+      const container = entries[0]?.target;
+      if (container == null) return;
+      setIsLeftArrowVisible(translate > 0);
+      setIRightArrowVisibile(
+        translate + container.clientWidth < container.scrollWidth
+      );
+    });
+    observer.observe(containerRef.current);
+    return () => {
+      observer.disconnect();
+    };
+  }, [translate]);
 
   return (
     <div
@@ -24,8 +45,15 @@ const SliderCatogories = () => {
       >
         {CatogoriesData.map((data, index) => (
           <button
-            className="bg-bgHover p-2 rounded-lg text-xs active:bg-gray-300 active:text-black "
+            className={` ${
+              index == onselect
+                ? "bg-gray-100 text-black font-semibold"
+                : "bg-bgHover text-gray-300 font-semibold"
+            } p-2 rounded-lg text-xs active:bg-gray-100 active:text-black  `}
             key={index}
+            onClick={() => {
+              handleclickColor(index);
+            }}
           >
             {data}
           </button>

@@ -13,6 +13,7 @@ import { SiYoutubeshorts } from "react-icons/si";
 type TMainmenu={
     name:string
     icons:IconType;
+    id:number;
 
 }
 
@@ -20,16 +21,19 @@ type TMainmenu={
 
 export const MainMenuData:TMainmenu[]=[
     {
+        id:0,
 icons:MdHomeFilled ,
 name:"Home"
 
 },
     {
+        id:1,
 icons:SiYoutubeshorts,
 name:"Short"
 
 },
     {
+        id:2,
 icons:MdSubscriptions,
 name:"Subcriptions"
 
@@ -39,18 +43,22 @@ name:"Subcriptions"
 
 export const YouMenuData:TMainmenu[]=[
     {
+        id:3,
         icons:MdHistory,
         name:"History"
     },
     {
+        id:5,
         icons:MdPlaylistPlay,
         name:"Playlist"
     },
     {
+        id:6,
         icons:MdOutlineWatchLater,
         name:"Watch Later"
     },
     {
+        id:7,
         icons:BiLike,
         name:"Liked videos"
     },
@@ -105,18 +113,22 @@ export const SubcriptionsChannelData:TTypeOfSubscripe[]=[
 export const ExploreData:TMainmenu[]=[
 
 {
+    id:8,
     icons:FaFire ,
     name:"Trending"
 },
 {
+    id:9,
     icons:MdOutlineMusicNote,
     name:"Music"
 },
 {
+    id:10,
     icons:IoGameController ,
     name:"Gamming"
 },
 {
+    id:11,
     icons:LuTrophy ,
     name:"Sports"
 },
@@ -141,18 +153,22 @@ export const YouTubeType: TTypeOfSubscripe[] = [
 export const settingData:TMainmenu[]=[
 
     {
+        id:12,
         icons:IoSettingsOutline ,
         name:"Setting"
     },
     {
+        id:13,
         icons:RiFlagLine ,
         name:"Report History"
     },
     {
+        id:14,
         icons:FiHelpCircle ,
         name:"Help"
     },
     {
+        id:15,
         icons:MdOutlineFeedback ,
         name:"Send feedback"
     },
@@ -190,22 +206,22 @@ export const settingData:TMainmenu[]=[
 
 
     export const Icons:TMainmenu[]=[{
-
+        id:16,
         icons: MdHomeFilled,
         name:"Home"
     },
     {
-
+        id:17,
         icons:SiYoutubeshorts,
         name:"Shorts"
     },
     {
-
+        id:18,
         icons:MdSubscriptions,
         name:"Subscriptions"
     },
     {
-
+        id:19,
         icons:CiYoutube,
         name:"You"
     },
